@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y iptables && apt-get clean
 ENV LANIP=192.168.1.1
 ADD iptables.sh	/
 RUN chmod +x /iptables.sh
+RUN update-alternatives --set iptables /usr/sbin/iptables-legacy
 
 CMD /task.sh ; /iptables.sh ; /start.sh ; bash
 
