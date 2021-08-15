@@ -1,6 +1,6 @@
 FROM land007/proxy:latest
 
-RUN apt-get update && apt-get install -y iptables && apt-get clean
+RUN apt-get update -y --allow-releaseinfo-change && apt-get install -y iptables && apt-get clean
 ENV LANIP=192.168.1.1
 ADD iptables.sh	/
 RUN chmod +x /iptables.sh
